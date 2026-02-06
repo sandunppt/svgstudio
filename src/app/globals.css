@@ -1,0 +1,745 @@
+@import "tailwindcss";
+
+/* ============================================
+   SVG Studio — Apple-Inspired Design System
+   ============================================ */
+
+:root {
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+
+  /* Colors */
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f5f7;
+  --bg-canvas: #e8e8ed;
+
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #86868b;
+
+  --border-primary: rgba(0, 0, 0, 0.06);
+  --border-secondary: rgba(0, 0, 0, 0.04);
+
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --accent-light: rgba(0, 113, 227, 0.08);
+
+  --danger: #ff3b30;
+  --danger-light: rgba(255, 59, 48, 0.08);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-canvas: 0 2px 20px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --topbar-h: 52px;
+  --toolbar-w: 56px;
+  --properties-w: 260px;
+
+  --transition: 0.18s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-inter);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Editor Layout
+   ============================================ */
+
+.editor-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.editor-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ============================================
+   Top Bar
+   ============================================ */
+
+.topbar {
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+  flex-shrink: 0;
+  gap: 12px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.topbar-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.topbar-right {
+  gap: 4px;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+}
+
+.topbar-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.topbar-group {
+  display: flex;
+  align-items: center;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  gap: 1px;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-primary);
+  margin: 0 4px;
+}
+
+.topbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font-inter);
+  white-space: nowrap;
+}
+
+.topbar-btn:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.topbar-btn:active {
+  transform: scale(0.95);
+}
+
+.topbar-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: transparent;
+  color: var(--text-tertiary);
+  transform: none;
+}
+
+.topbar-btn:disabled:hover {
+  background: transparent;
+  color: var(--text-tertiary);
+}
+
+.topbar-btn-export {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+.topbar-btn-export:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.topbar-btn-danger:hover {
+  background: var(--danger-light);
+  color: var(--danger);
+}
+
+.topbar-zoom {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 42px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   Left Toolbar
+   ============================================ */
+
+.toolbar {
+  width: var(--toolbar-w);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0;
+  flex-shrink: 0;
+}
+
+.toolbar-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+}
+
+.toolbar-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.toolbar-btn:hover {
+  background: white;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.toolbar-btn:active {
+  transform: scale(0.92);
+}
+
+.toolbar-btn.active {
+  background: white;
+  color: var(--accent);
+  box-shadow: var(--shadow-sm), 0 0 0 1px rgba(0, 113, 227, 0.12);
+}
+
+/* ============================================
+   Canvas Area
+   ============================================ */
+
+.canvas-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-canvas);
+  overflow: hidden;
+  position: relative;
+
+  /* Subtle dot grid */
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.canvas-wrapper {
+  box-shadow: var(--shadow-canvas);
+  border-radius: 4px;
+  overflow: hidden;
+  background: white;
+  transition: transform var(--transition);
+}
+
+.canvas-wrapper canvas {
+  display: block;
+}
+
+/* ============================================
+   Properties Panel (Right Sidebar)
+   ============================================ */
+
+.properties-panel {
+  width: var(--properties-w);
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-primary);
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.properties-panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.properties-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.properties-panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.properties-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 32px;
+  text-align: center;
+}
+
+.properties-empty-icon {
+  color: var(--text-tertiary);
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+.properties-empty-text {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.properties-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.properties-type {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.properties-delete {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-tertiary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.properties-delete:hover {
+  background: var(--danger-light);
+  color: var(--danger);
+}
+
+/* Property Sections */
+
+.prop-section {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.prop-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.prop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.prop-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  padding: 0 8px;
+  height: 32px;
+  border: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.prop-field:focus-within {
+  border-color: var(--accent);
+  background: white;
+}
+
+.prop-field label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  min-width: 12px;
+}
+
+.prop-field input[type="number"],
+.prop-field input[type="text"],
+.prop-number-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-family: var(--font-inter);
+  color: var(--text-primary);
+  outline: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.prop-field input[type="number"]::-webkit-inner-spin-button,
+.prop-field input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.prop-number-input::-webkit-inner-spin-button,
+.prop-number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.prop-field input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.prop-number-input {
+  -moz-appearance: textfield;
+}
+
+.prop-number-control {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.prop-number-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.prop-number-btn {
+  width: 14px;
+  height: 11px;
+  border: 1px solid var(--border-primary);
+  border-radius: 3px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+
+.prop-number-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: white;
+}
+
+.prop-field-full {
+  width: 100%;
+}
+
+.prop-unit {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.prop-select {
+  width: 100%;
+  border: none;
+  background: var(--bg-tertiary);
+  font-size: 12px;
+  font-family: var(--font-inter);
+  color: var(--text-primary);
+  outline: none;
+  padding: 7px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color var(--transition);
+  margin-top: 6px;
+}
+
+.prop-select:focus {
+  border-color: var(--accent);
+  background: white;
+}
+
+.prop-select-inline {
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.prop-select-inline:focus {
+  border: none;
+  background: transparent;
+}
+
+/* Color Picker */
+
+.color-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.color-input {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border-primary);
+}
+
+.color-input::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.color-input::-webkit-color-swatch {
+  border: none;
+  border-radius: 3px;
+}
+
+.color-text {
+  flex: 1;
+  height: 32px;
+  border: 1px solid transparent;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  padding: 0 8px;
+  font-size: 11px;
+  font-family: var(--font-inter);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition);
+  font-variant-numeric: tabular-nums;
+}
+
+.color-text:focus {
+  border-color: var(--accent);
+  background: white;
+}
+
+.color-swatches {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+}
+
+.color-swatch {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+  box-shadow: var(--shadow-sm);
+}
+
+.color-swatch.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-light);
+}
+
+.color-swatch-transparent {
+  background: linear-gradient(45deg,
+    #eee 25%, transparent 25%,
+    transparent 75%, #eee 75%) 0 0 / 8px 8px,
+  linear-gradient(45deg,
+    #eee 25%, transparent 25%,
+    transparent 75%, #eee 75%) 4px 4px / 8px 8px;
+  background-color: white;
+}
+
+/* Slider */
+
+.prop-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.prop-slider-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  min-width: 52px;
+}
+
+.prop-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.prop-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: box-shadow var(--transition);
+}
+
+.prop-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+}
+
+.prop-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.prop-slider-value {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 32px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.prop-section {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* ============================================
+   Canvas drop highlight
+   ============================================ */
+
+.canvas-area.drag-over::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 113, 227, 0.05);
+  border: 2px dashed var(--accent);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ============================================
+   Responsive fine-tuning
+   ============================================ */
+
+@media (max-width: 900px) {
+  .properties-panel {
+    width: 220px;
+  }
+
+  .topbar-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .properties-panel {
+    display: none;
+  }
+
+  .toolbar {
+    width: 48px;
+  }
+
+  .toolbar-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
