@@ -1,4 +1,4 @@
-# Modern SVG Editor
+# SVG Studio
 
 基于 Next.js + Fabric.js 的现代化 SVG 在线编辑器，支持图形绘制、文字编辑、路径导入、智能对齐和 SVG/PNG 导出。
 
@@ -62,40 +62,6 @@ src/
   types/              # 类型定义
 ```
 
-## 开源发布到 GitHub（一步步）
-
-如果你还没初始化 Git 仓库，可在项目根目录执行：
-
-```bash
-git init
-git add .
-git commit -m "feat: initial modern svg editor"
-```
-
-在 GitHub 创建一个新仓库（例如 `modern-svg-editor`）后执行：
-
-```bash
-git branch -M main
-git remote add origin https://github.com/<your-name>/modern-svg-editor.git
-git push -u origin main
-```
-
-如果你已经有 Git 仓库，只需要：
-
-```bash
-git add .
-git commit -m "docs: update README for open-source release"
-git push
-```
-
-## 开源建议（推荐）
-
-- 添加 `LICENSE`（推荐 MIT）
-- 在 GitHub 仓库设置里补充：
-  - Description
-  - Topics（如 `svg`、`editor`、`fabricjs`、`nextjs`）
-  - Homepage（如果有在线地址）
-- 创建首个 Release（如 `v0.1.0`）
 
 ## 贡献
 
@@ -113,4 +79,5 @@ git push
 - [Fabric.js](https://fabricjs.com/)
 - [Next.js](https://nextjs.org/)
 - [Lucide](https://lucide.dev/)
+- [svgedit](https://github.com/SVG-Edit/svgedit)
 
