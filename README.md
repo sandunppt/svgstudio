@@ -1,6 +1,6 @@
 # SVG Studio
 
-基于 Next.js + Fabric.js 的现代化 SVG 在线编辑器，支持图形绘制、文字编辑、路径导入、智能对齐和 SVG/PNG 导出。
+基于 Next.js + Fabric.js 的现代化 SVG 在线编辑器，主要针对SVG PPT编辑，支持图形绘制、文字编辑、路径导入、智能对齐和 SVG/PNG 导出。
 
 ## 功能特性
 
@@ -19,7 +19,7 @@
 ![](https://github.com/sandunppt/svgstudio/blob/main/demo/2.png)
 ![](https://github.com/sandunppt/svgstudio/blob/main/demo/3.png)
 
-可以使用images文件夹内的demo.svg进行测试
+可以使用demo文件夹内的demo.svg进行测试
 
 ## 技术栈
 
