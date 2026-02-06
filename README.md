@@ -13,6 +13,12 @@
 - 右侧属性面板（中文）：按元素类型展示对应编辑项
 - 历史能力：撤销 / 重做 / 恢复导入时初始状态
 
+## 演示图片
+
+![](https://github.com/sandunppt/svgstudio/blob/main/images/1.png)
+![](https://github.com/sandunppt/svgstudio/blob/main/images/2.png)
+![](https://github.com/sandunppt/svgstudio/blob/main/images/3.png)
+
 ## 技术栈
 
 - Next.js 16
