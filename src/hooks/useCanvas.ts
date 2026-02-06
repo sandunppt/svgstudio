@@ -1167,15 +1167,17 @@ export function useCanvas() {
           }
         };
 
+        const validObjects = (objects ?? []).filter((obj): obj is FabricObject => obj !== null);
+
         // Process and Add objects
-        if (objects && objects.length > 0) {
-          processObjects(objects); // Convert types and fix patterns before adding
+        if (validObjects.length > 0) {
+          processObjects(validObjects); // Convert types and fix patterns before adding
 
           const shouldSkipBg = !!(bgLayerId && bgPngURL);
           const entries: Array<{ order: number; obj: FabricObject }> = [];
           const grouped = new Map<string, { order: number; objects: FabricObject[] }>();
 
-          objects.forEach((obj, index) => {
+          validObjects.forEach((obj, index) => {
             const groupId = (obj as any).__svgGroupId as string | undefined;
             if (shouldSkipBg && groupId === bgLayerId) {
               return;

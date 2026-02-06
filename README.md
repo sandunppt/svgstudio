@@ -52,6 +52,29 @@ npm run build
 npm run start
 ```
 
+## Docker 部署
+
+### 1. 直接使用 Docker
+
+```bash
+docker build -t modern-svg-editor .
+docker run -d --name modern-svg-editor -p 5999:5999 modern-svg-editor
+```
+
+### 2. 使用 Docker Compose
+
+```bash
+docker compose up -d --build
+```
+
+默认访问地址：`http://localhost:5999`
+
+停止服务：
+
+```bash
+docker compose down
+```
+
 ## NPM 脚本
 
 - `npm run dev`：开发模式（端口 5999）
