@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <!-- Card Glassmorphism Effect -->
+    <filter id="cardBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+    </filter>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.08)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)" />
+    </linearGradient>
+    <!-- Glow Effect for Data -->
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- LAYER 1: Global Background -->
+  <g id='bg'>
+    <defs>
+      <pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'>
+        <path d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/>
+      </pattern>
+      <radialGradient id='glow' cx='80%' cy='80%' r='50%'>
+        <stop offset='0%' stop-color='#00F2FF' stop-opacity='0.15'/>
+        <stop offset='100%' stop-color='#0A0E14' stop-opacity='0'/>
+      </radialGradient>
+    </defs>
+    <rect width='100%' height='100%' fill='#0A0E14'/>
+    <rect width='100%' height='100%' fill='url(#grid)'/>
+    <rect width='100%' height='100%' fill='url(#glow)'/>
+  </g>
+
+  <!-- LAYER 2: Content Layer -->
+  <g id="content_layer">
+    
+    <!-- Module 1: Motivation Matrix (Left Column) -->
+    <g id="module_1" transform="translate(40, 100)">
+      <rect width="380" height="580" rx="12" fill="url(#cardGrad)" stroke="rgba(0, 242, 255, 0.2)" stroke-width="1"/>
+      <text x="30" y="45" fill="#00F2FF" font-family="Arial, sans-serif" font-size="20" font-weight="bold">深度动机：从“面子”到“价值”</text>
+      
+      <!-- Radial Progress / Visual Center -->
+      <circle cx="190" cy="160" r="70" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+      <path d="M 190 90 A 70 70 0 1 1 120 160" fill="none" stroke="#00F2FF" stroke-width="8" stroke-linecap="round" filter="url(#cyanGlow)"/>
+      <text x="190" y="160" text-anchor="middle" fill="#FFFFFF" font-family="Arial" font-size="42" font-weight="bold">88%</text>
+      <text x="190" y="185" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Microsoft YaHei" font-size="14">护肤日常化认同</text>
+
+      <!-- List -->
+      <g transform="translate(30, 270)">
+        <g transform="translate(0, 0)">
+          <rect width="4" height="40" fill="#00F2FF" opacity="0.6"/>
+          <text x="15" y="18" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="16" font-weight="bold">生理健康</text>
+          <text x="15" y="42" fill="rgba(255,255,255,0.5)" font-family="Microsoft YaHei" font-size="13">保护屏障，预防老化与病变</text>
+        </g>
+        <g transform="translate(0, 75)">
+          <rect width="4" height="40" fill="#00F2FF" opacity="0.6"/>
+          <text x="15" y="18" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="16" font-weight="bold">职业社交</text>
+          <text x="15" y="42" fill="rgba(255,255,255,0.5)" font-family="Microsoft YaHei" font-size="13">形象管理即“社交资产”</text>
+        </g>
+        <g transform="translate(0, 150)">
+          <rect width="4" height="40" fill="#00F2FF" opacity="0.6"/>
+          <text x="15" y="18" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="16" font-weight="bold">心理关怀</text>
+          <text x="15" y="42" fill="rgba(255,255,255,0.5)" font-family="Microsoft YaHei" font-size="13">通过仪式感缓解高压，获得满足</text>
+        </g>
+        <g transform="translate(0, 225)">
+          <rect width="4" height="40" fill="#00F2FF" opacity="0.6"/>
+          <text x="15" y="18" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="16" font-weight="bold">自我认同</text>
+          <text x="15" y="42" fill="rgba(255,255,255,0.5)" font-family="Microsoft YaHei" font-size="13">去性别化审美，追求精致与自信</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Module 2: Data Impact (Middle Top) -->
+    <g id="module_2" transform="translate(440, 100)">
+      <rect width="400" height="280" rx="12" fill="url(#cardGrad)" stroke="rgba(0, 242, 255, 0.1)" stroke-width="1"/>
+      <text x="25" y="40" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="18" font-weight="bold">数说觉醒：1.7倍于大盘的超速增长</text>
+      
+      <!-- Bar Chart -->
+      <g transform="translate(25, 70)">
+        <text y="15" fill="rgba(255,255,255,0.6)" font-size="12">复合增速对比</text>
+        <rect y="25" width="280" height="20" rx="2" fill="rgba(255,255,255,0.05)"/>
+        <rect y="25" width="220" height="20" rx="2" fill="#00F2FF" filter="url(#cyanGlow)"/>
+        <text x="230" y="40" fill="#00F2FF" font-family="Arial" font-size="16" font-weight="bold">18.9% 男士护肤</text>
+        
+        <rect y="55" width="280" height="20" rx="2" fill="rgba(255,255,255,0.05)"/>
+        <rect y="55" width="130" height="20" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <text x="140" y="70" fill="rgba(255,255,255,0.6)" font-family="Arial" font-size="16">11.2% 全品类</text>
+      </g>
+
+      <!-- Stats Grid -->
+      <line x1="25" y1="180" x2="375" y2="180" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4 2"/>
+      <g transform="translate(25, 210)">
+        <text fill="rgba(255,255,255,0.5)" font-size="13">“男士控油”搜索环比</text>
+        <text y="35" fill="#FF4D4D" font-family="Arial" font-size="32" font-weight="bold">↑ 732%</text>
+      </g>
+      <g transform="translate(210, 210)">
+        <text fill="rgba(255,255,255,0.5)" font-size="13">男性美妆KOL活跃用户</text>
+        <text y="35" fill="#FFFFFF" font-family="Arial" font-size="32" font-weight="bold">1.85 亿</text>
+      </g>
+    </g>
+
+    <!-- Module 3: Z-Generation (Middle Bottom) -->
+    <g id="module_3" transform="translate(440, 400)">
+      <rect width="400" height="280" rx="12" fill="url(#cardGrad)" stroke="rgba(0, 242, 255, 0.1)" stroke-width="1"/>
+      <text x="25" y="40" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="18" font-weight="bold">消费主力：Z世代的“精致”底色</text>
+      
+      <rect x="25" y="65" width="350" height="70" rx="8" fill="rgba(0, 242, 255, 0.05)"/>
+      <text x="45" y="112" fill="#00F2FF" font-family="Arial" font-size="40" font-weight="bold" filter="url(#cyanGlow)">60%+</text>
+      <text x="165" y="95" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="15">
+        <tspan x="165" dy="0">95后在18岁前</tspan>
+        <tspan x="165" dy="24">已开启护肤行为</tspan>
+      </text>
+
+      <g transform="translate(25, 165)">
+        <text fill="rgba(255,255,255,0.8)" font-family="Microsoft YaHei" font-size="14">
+          <tspan x="0" dy="0">● 95后超越90后，成为线上消费第一支柱</tspan>
+          <tspan x="0" dy="30">● 去标签化：不再是“女性化”，而是“积极态度”</tspan>
+          <tspan x="0" dy="30">● 审美从“粗犷”转向“精致”，追求生活品质</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- Module 4: Conclusion (Right Column) -->
+    <g id="module_4" transform="translate(860, 100)">
+      <rect width="380" height="580" rx="12" fill="rgba(0, 242, 255, 0.03)" stroke="#00F2FF" stroke-width="1" stroke-dasharray="10 5" opacity="0.5"/>
+      
+      <!-- Decorative Quote Mark -->
+      <text x="30" y="100" fill="#00F2FF" font-family="Georgia" font-size="120" opacity="0.1">“</text>
+      
+      <text x="40" y="150" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="28" font-weight="bold">社会观念转向</text>
+      <text x="40" y="210" fill="#00F2FF" font-family="Microsoft YaHei" font-size="48" font-weight="bold" filter="url(#cyanGlow)">去性别化</text>
+      <text x="40" y="275" fill="#FFFFFF" font-family="Microsoft YaHei" font-size="48" font-weight="bold">审美觉醒</text>
+
+      <g transform="translate(40, 360)">
+        <text fill="rgba(255,255,255,0.7)" font-family="Microsoft YaHei" font-size="18" line-height="1.6">
+          <tspan x="0" dy="0">审美多元化：从“面子”到“价值”</tspan>
+          <tspan x="0" dy="40">摆脱“油腻”焦虑，拥抱自我关怀</tspan>
+          <tspan x="0" dy="40">资本与KOL合力完成市场启蒙</tspan>
+        </text>
+      </g>
+
+      <rect x="40" y="500" width="300" height="1" fill="rgba(0, 242, 255, 0.3)"/>
+      <text x="40" y="540" fill="#00F2FF" font-family="Microsoft YaHei" font-size="14" font-style="italic">—— 男性护肤市场爆发的底层心理逻辑</text>
+      
+      <text x="280" y="560" fill="#00F2FF" font-family="Georgia" font-size="120" opacity="0.1">”</text>
+    </g>
+  </g>
+
+  <!-- LAYER 3: Global Header (Strictly Reused) -->
+  <g id='header'>
+    <line x1='40' y1='48' x2='40' y2='72' stroke='#00F2FF' stroke-width='4' stroke-linecap='round'/>
+    <text x='58' y='66' fill='#FFFFFF' font-family='Arial, sans-serif' font-size='26' font-weight='bold' letter-spacing='1'>政策与社会因素：男性自我意识的觉醒</text>
+  </g>
+</svg>
