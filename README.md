@@ -18,6 +18,7 @@
 ![](https://github.com/sandunppt/svgstudio/blob/main/demo/1.png)
 ![](https://github.com/sandunppt/svgstudio/blob/main/demo/2.png)
 ![](https://github.com/sandunppt/svgstudio/blob/main/demo/3.png)
+![](https://github.com/sandunppt/svgstudio/blob/main/demo/4.png)
 
 可以使用demo文件夹内的demo.svg进行测试
 
